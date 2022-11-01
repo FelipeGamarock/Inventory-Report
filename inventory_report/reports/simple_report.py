@@ -6,7 +6,7 @@ class SimpleReport:
         pass
 
     @classmethod
-    def generate(self, report_infos):
+    def generate(cls, report_infos):
         oldest_date = min(
             [product["data_de_fabricacao"] for product in report_infos]
         )
@@ -25,16 +25,3 @@ class SimpleReport:
             f"Data de validade mais próxima: {closest_expiration_date}\n"
             f"Empresa com mais produtos: {company}"
         )
-
-
-# print(SimpleReport.generate([
-#      {
-#        "id": 1,
-#        "nome_do_produto": "CADEIRA",
-#        "nome_da_empresa": "Forces of Nature",
-#        "data_de_fabricacao": "2022-04-04",
-#        "data_de_validade": "2023-02-09",
-#        "numero_de_serie": "FR48",
-#        "instrucoes_de_armazenamento": "Conservar em local fresco"
-#      }
-#    ]))
