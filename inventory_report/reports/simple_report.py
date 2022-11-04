@@ -2,8 +2,6 @@ from statistics import mode
 
 
 class SimpleReport:
-    def __init__(self):
-        pass
 
     @classmethod
     def generate(cls, report_infos):
