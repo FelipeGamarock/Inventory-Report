@@ -1,4 +1,4 @@
-from .simple_report import SimpleReport
+from inventory_report.reports.simple_report import SimpleReport
 from typing import Counter
 
 
@@ -19,20 +19,3 @@ class CompleteReport(SimpleReport):
             f"Produtos estocados por empresa:\n"
             f"{company_report}"
         )
-
-
-# print(
-#     CompleteReport.generate(
-#         [
-#             {
-#                 "id": 1,
-#                 "nome_do_produto": "MESA",
-#                 "nome_da_empresa": "Forces of Nature",
-#                 "data_de_fabricacao": "2022-05-04",
-#                 "data_de_validade": "2023-02-09",
-#                 "numero_de_serie": "FR48",
-#                 "instrucoes_de_armazenamento": "Conservar ao abrigo de luz",
-#             }
-#         ]
-#     )
-# )
