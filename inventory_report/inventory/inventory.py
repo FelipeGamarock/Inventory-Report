@@ -1,5 +1,7 @@
 import csv
 import json
+import xmltodict
+# from xml.dom import minidom
 from inventory_report.reports.simple_report import SimpleReport
 from inventory_report.reports.complete_report import CompleteReport
 
@@ -17,6 +19,19 @@ def read_json_file(path):
         return product_list
 
 
+def read_xml_file(path):
+    with open(path, "r") as file:
+        # xml = minidom.parse(file)
+        # file_data = xml.getElementByTag("dataset")
+        # product_list = file_data.getElementByTag("record")
+        # return product_list
+
+        file_read = file.read()
+        file_parsed = xmltodict.parse(file_read)
+        product_list = file_parsed["dataset"]["record"]
+        return product_list
+
+
 class Inventory:
 
     @classmethod
@@ -25,6 +40,8 @@ class Inventory:
             product_report = read_csv_file(path)
         elif "json" in path:
             product_report = read_json_file(path)
+        elif "xml" in path:
+            product_report = read_xml_file(path)
 
         if type == "simples":
             return SimpleReport.generate(product_report)
